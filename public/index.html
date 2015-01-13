@@ -63,27 +63,55 @@
 			text-align: center;
 		}
 
+		#score {
+
+			text-align: center;
+			color: white;
+		}
+
 
 	</style>
 </head>
 <body>
 	<header><img src="img/header.jpg"></img></header>
-	<h5><em>Turn the light off</em></h5>
+	<h5><em>Turn the light off: </em><span id="score"></span></h5>
 	<div align="center">
 		<div id="gameContainer" >
-			<div class="mole"></div>
-			<div class="mole"></div>
-			<div class="mole"></div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
 
-			<div class="mole"></div>
-			<div class="mole"></div>
-			<div class="mole"></div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
 
-			<div class="mole"></div>
-			<div class="mole"></div>
-			<div class="mole"></div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
+			<div class="mole">
+				<a class="play-light01"></a>
+			</div>
 		</div>
+			<audio class="audio-player" id="light01" src="sounds/lightoff01.mp3"></audio>
+			<audio class="audio-player" id="light02" src="sounds/lightoff02.mp3"></audio>
+			<audio class="audio-player" id="trex" src="sounds/trex.mp3"></audio>
 	</div>
+
 
 	<!-- Javascript here for div containers -->
 
@@ -93,12 +121,13 @@
 
 	var score = 0;
 
+	
+
+	
 
 	$('document').ready(function() { 
 
 	 	setInterval(function() {
-
-	 		
 
 	 		var moleKey = Math.floor(Math.random() * 10)
 
@@ -109,22 +138,24 @@
 				setTimeout(function(){
 					$(selectedMole).removeClass('moleRandom');
 
-				}, 4000);
+				}, 1000);
 
-			$('selectedMole').click(function(event) {
-			
+			$(selectedMole).click(function(event) {
+				$(this).hide();
 				score++;
-				$(".mole").off();
-				
+				$("#score").text(score);
+
+					var sounds = ['#light01', '#light02', '#trex'];
+					var index = (Math.floor(Math.random()*3));
+
+				$(sounds[index]).trigger("play");
+
+
 			})
 
-	 	}, 6000);
+	 	}, 4000);
 
     });
-
-
-   
-
 
 
 	</script>
