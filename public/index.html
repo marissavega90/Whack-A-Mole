@@ -9,11 +9,11 @@
 	*
 		#gameContainer {
 
-			border: 1px solid;
-			border-color: black;
+			/*border: 1px solid;*/
+			/*border-color: black;*/
 		    width: 600px;
 		    height: 600px;
-		    background-color: white;
+		    /*background-color: white;*/
 		    /*color: #FFF;*/
 		    padding-right: 20px;
 		    padding-top: 20px;
@@ -23,43 +23,52 @@
 
 		.mole {
 
-			border: 1px solid;
-			border-color: black;
+			/*border: 1px solid;*/
+			/*border-color: black;*/
 			width: 150px;
 			height: 150px;
-			background-color: white;
+			/*background-color: white;*/
 			padding: 10px;
 			margin: 10px;
 			float: right;
+			background: no-repeat;
 
 		}
 
 		.moleRandom {
 
-			background-color: red;
+			background-image: url(img/trexmole.png);
+
 
 		}
 
 
-		
-	/*	.moleRandom {
+		body {
 
-			border: 1px solid;
-			border-color: black;
-			width: 150px;
-			height: 150px;
-			background-color: red;
-			padding: 10px;
-			margin: 10px;
-			float: right;
+			background-color: black;
+			cursor: url(img/torchcursor.png), default;
 
-		}*/
+		}
+
+		img {
+
+			width: 40%;
+			height: 40%;
+			margin-left: 30%;
+		}
+
+		h5 {
+
+			color: white;
+			text-align: center;
+		}
 
 
 	</style>
 </head>
 <body>
-	<h1>Whack-A-Mole</h1>
+	<header><img src="img/header.jpg"></img></header>
+	<h5><em>Turn the light off</em></h5>
 	<div align="center">
 		<div id="gameContainer" >
 			<div class="mole"></div>
@@ -82,10 +91,14 @@
 
 	<script type="text/javascript">
 
+	var score = 0;
+
 
 	$('document').ready(function() { 
 
 	 	setInterval(function() {
+
+	 		
 
 	 		var moleKey = Math.floor(Math.random() * 10)
 
@@ -95,11 +108,20 @@
 
 				setTimeout(function(){
 					$(selectedMole).removeClass('moleRandom');
-				}, 570);
 
-	 	}, 1500);
+				}, 4000);
+
+			$('selectedMole').click(function(event) {
+			
+				score++;
+				$(".mole").off();
+				
+			})
+
+	 	}, 6000);
 
     });
+
 
    
 
