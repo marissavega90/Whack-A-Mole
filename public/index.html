@@ -69,11 +69,17 @@
 			color: white;
 		}
 
+		.raptorize {
+
+			height: 20px;
+		}
+
 
 	</style>
 </head>
 <body>
 	<header><img src="img/header.jpg"></img></header>
+	<div class="button">Turn the light off!</div>
 	<h5><em>Turn the light off: </em><span id="score"></span></h5>
 	<div align="center">
 		<div id="gameContainer" >
@@ -106,7 +112,6 @@
 			<div class="mole">
 				<a class="play-light01"></a>
 			</div>
-			<a href="#" class="button">Click me</a> to activate the Raptorize plugin.</p>
 		</div>
 			<audio class="audio-player" id="light01" src="sounds/lightoff01.mp3"></audio>
 			<audio class="audio-player" id="light02" src="sounds/lightoff02.mp3"></audio>
@@ -116,16 +121,7 @@
 
 	<!-- Javascript here for div containers -->
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-	<script>!window.jQuery && document.write('<script src="js/jquery-1.4.3.min.js"><\/script>')</script>
-	<script src="js/jquery.raptorize.1.0.js"></script>
-	<script type="text/javascript">
-
-		$(window).load(function() {
-		          $('.button').raptorize();
-		     });
-		
-	</script>
+	
 	
 
 	<script src="js/jquery.min.js"></script>
@@ -173,6 +169,18 @@
 
 	</script>
 
+	<!-- Raptorize the page to end the game -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="js/jquery-1.4.3.min.js"><\/script>')</script>
+	<script src="js/jquery.raptorize.1.0.js"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.button').raptorize({
+				'enterOn' : 'timer',
+				'delayTime' : 1000
+			});
+		});
+	</script>	
 	
 </body>
 </html>
